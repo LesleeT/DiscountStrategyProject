@@ -40,9 +40,8 @@ public class InMemoryDataAccess implements DataAccessStrategy {
     public Customer findCustomerById(final String custId) {
         // validation is needed for method parameter
         if(custId == null || custId.length() == 0) {
-            System.out.println("Sorry, FakeDatabase.findCustomer method has "
+            throw new IllegalArgumentException("Sorry, FakeDatabase.findCustomer method has "
                     + "illegal argument");
-            return null;  // end method prematurely after log to console
         }
        
         Customer customer = null;

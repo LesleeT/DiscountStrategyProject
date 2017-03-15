@@ -11,19 +11,40 @@ package discountstrategyproject;
  */
 public class QtyDiscount implements DiscountStrategy{
 
-    private double discount = 0.15;
-    private double price;
-    private int minimumQty;
+    private double discountRate = 0.15;
+    private int minimumQty = 5;
 
-    public QtyDiscount(double price, int minimumQty) {
+    public QtyDiscount(double discountRate, int minimumQty) {
         //add validation
-        this.price = price;
+        this.discountRate = discountRate;
         this.minimumQty = minimumQty;
     }
 
     @Override
-    public double getDiscountAmount(double discountRate){
-        return minimumQty * price * discount;
+    public double getDiscountAmount(double price, int qty){
+        double discountAmt = 0.00;
+        
+        if(qty >= minimumQty) {
+            discountAmt = price * qty * discountRate;
+        }
+        
+        return discountAmt;
+    }
+
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+
+    public int getMinimumQty() {
+        return minimumQty;
+    }
+
+    public void setMinimumQty(int minimumQty) {
+        this.minimumQty = minimumQty;
     }
     
     

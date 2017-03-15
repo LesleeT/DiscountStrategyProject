@@ -20,11 +20,8 @@ public class DiscountStrategyProject {
         PosTerminal posTerminal = new PosTerminal(output,output2);
         DataAccessStrategy db = new InMemoryDataAccess();
         
-        //OutputStrategy output2 = new ConsoleOutputStrategy();
-        
         posTerminal.startSale("101", db);
         posTerminal.addItemToSale("201", 1);
-        //posTerm.printReceipt();
         posTerminal.endSale();
         
         

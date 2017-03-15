@@ -13,9 +13,10 @@ package discountstrategyproject;
 public class Receipt implements DataAccessStrategy{
     private DataAccessStrategy db;
     private LineItem[] lineItems;
+    private Customer customer;
     
     public Receipt(String custId, DataAccessStrategy db) {
-        
+        customer = findCustomer(custId, db);
     }
     
     private Customer findCustomer(String custId, DataAccessStrategy db){
@@ -44,16 +45,35 @@ public class Receipt implements DataAccessStrategy{
         return;
     }
     
-    
-    @Override
-    public Product findProductById(String prodId) {
-        return db.findProductById(prodId);
-    }
+
 
     @Override
     public Customer findCustomerById(String custId) {
         return db.findCustomerById(custId);
     }
-     
     
+    private double getLineItemSubtotal(LineItem item) {
+        return item.getProduct().getPrice() * item.getQty();
+    }
+    
+    private double getLineItemDiscount(LineItem item) {
+        return item.getProduct().getDs().getDiscountAmount(item.getProduct().getPrice(), item.getQty());
+    }
+     
+    public void oututReceipt() {
+        String data = "";
+        data += "Thank you for shopping at Kohls\n";
+        data += "\n";
+        data += "Date of Sale: 3/11/2017\n";
+        data += "Sold to: " + customer.getCustomerName() + "\n";
+        data += "\n";
+        data += "Prod ID    Item          Price     Qty     Subtotal    Discount\n";
+        for(LineItem item : lineItems) {
+            data += item.getProduct().getProdId() + "     " + item.getProduct().getProdName()
+                    + "      " + item.getProduct().getPrice() +
+                    item.getQty() + "      " + getLineItemSubtotal(item)
+                            + "    " + getLineItemDiscount(item);
+        }
+    }
+
 }

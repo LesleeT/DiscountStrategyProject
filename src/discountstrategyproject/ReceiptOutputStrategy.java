@@ -9,9 +9,6 @@ package discountstrategyproject;
  *
  * @author ltrinastic
  */
-public interface DiscountStrategy {
-    
-   public abstract double getDiscountAmount(double price, int qty);
-    
+public interface ReceiptOutputStrategy {
     
 }

@@ -10,14 +10,29 @@ package discountstrategyproject;
  * @author Leslee
  */
 public class Customer {
+    private String custId;
+    private String customerName;
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public Customer(String custId, String customerName) {
-        
+        setCustId(custId);
+        setCustomerName(customerName);
     }
 
     public final String getCustId() {
         //getCustId
         return getCustId();
+    }
+
+    public void setCustId(String custId) {
+        this.custId = custId;
     }
 
     

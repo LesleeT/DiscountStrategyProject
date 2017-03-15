@@ -11,7 +11,8 @@ package discountstrategyproject;
  */
 public interface DataAccessStrategy {
 
-    public abstract Product findProductById(String prodId);
+    public abstract Product findProductById(String prodId);//product needs to be taken out, as it's
+    //not a dataaccess object
 
     public abstract Customer findCustomerById(String custId);
 

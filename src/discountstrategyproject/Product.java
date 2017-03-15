@@ -23,17 +23,47 @@ public class Product {
         this.price = price;
     }
 
-    public final String getProdId() {//get product?  include prodid?
+    public LineItem getLineItem() {
+        return lineItem;
+    }
+
+    public void setLineItem(LineItem lineItem) {
+        this.lineItem = lineItem;
+    }
+
+    public DiscountStrategy getDs() {
+        return ds;
+    }
+
+    public void setDs(DiscountStrategy ds) {
+        this.ds = ds;
+    }
+
+    public String getProdId() {
         return prodId;
     }
 
-    public final void setProdId(String prodId) {
+    public void setProdId(String prodId) {
         this.prodId = prodId;
     }
+
+    public String getProdName() {
+        return prodName;
+    }
+
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     
-    public final Product getProduct(String prodId, String prodName, double price, DiscountStrategy ds){
-        return lineItem.findProductById(prodId);    
-    } 
     
     
 }
