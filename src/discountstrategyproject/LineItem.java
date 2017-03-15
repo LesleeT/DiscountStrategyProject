@@ -13,7 +13,7 @@ public class LineItem {
     private Product product;
     private int qty;
     
-    public LineItem(String prodId, int qty,DataAccessStrategy db) {
+    public LineItem(String prodId, int qty, DataAccessStrategy db) {
         product = findProduct(prodId, db);
         this.qty = qty;
     }

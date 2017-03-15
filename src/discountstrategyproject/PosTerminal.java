@@ -11,6 +11,15 @@ package discountstrategyproject;
  */
 public class PosTerminal {
     private Receipt receipt;
+    private OutputStrategy output;
+    //private OutputStrategy output2;
+
+    public PosTerminal(OutputStrategy output, OutputStrategy output2) {
+        this.output = output;
+       // this.output2 = output2;
+    }
+    
+    
     
     //start sale
     public final void startSale(String custId, DataAccessStrategy db){
@@ -23,6 +32,10 @@ public class PosTerminal {
         
     }
     
-    //end sale
+    //end sale and output receipt
+    public final void endSale(){
+        output.getSaleReceipt(receipt.getReceiptData());
+        output2.getSaleReceipt(receipt.getReceiptData());
+    }
     
 }
