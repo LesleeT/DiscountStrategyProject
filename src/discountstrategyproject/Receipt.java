@@ -5,11 +5,13 @@
  */
 package discountstrategyproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Leslee
  */
-public class Receipt {
+public class Receipt implements OutputStrategy {
     DataAccessStrategy db;
     Customer customer;
     private LineItem[] lineItems;
@@ -40,5 +42,10 @@ public class Receipt {
         tempItems = null;
     }
     
+     
+     // public void sendMessageOutput(String message){
+       // JOptionPane.showMessageDialog(null,"Thank you for Shopping at Kohl's Department Store"
+         //       + "sold to : " + custId + "/n Address" );//get custID
+    //}
     
 }

@@ -5,11 +5,18 @@
  */
 package discountstrategyproject;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Leslee
  */
-public interface OutputStrategy {
-   public abstract void sendMessageOutput(String message);
+public class GuiOutputStrategy implements OutputStrategy {
+
+    @Override
+    public void sendMessageOutput(String message) {
+        JOptionPane.showMessageDialog(null,"This is the message of the day" );
+        
+    }
     
 }

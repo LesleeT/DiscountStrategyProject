@@ -9,7 +9,11 @@ package discountstrategyproject;
  *
  * @author Leslee
  */
-public interface OutputStrategy {
-   public abstract void sendMessageOutput(String message);
+public class ConsoleOutputStrategy implements OutputStrategy {
+
+    @Override
+    public void sendMessageOutput(String message) {
+        System.out.println("Message");
+        }
     
 }

@@ -9,7 +9,6 @@ package discountstrategyproject;
  *
  * @author Leslee
  */
-public interface OutputStrategy {
-   public abstract void sendMessageOutput(String message);
+public interface ReceiptDataAccessStrategy {
     
 }
