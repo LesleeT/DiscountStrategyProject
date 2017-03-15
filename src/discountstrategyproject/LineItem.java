@@ -9,17 +9,32 @@ package discountstrategyproject;
  *
  * @author Leslee
  */
-public class LineItem {
+public class LineItem implements DataAccessStrategy {
+    private DataAccessStrategy db;
     private Product product;
     private int qty;
     
     public LineItem(String prodId, int qty, DataAccessStrategy db) {
-        product = findProduct(prodId, db);
+        product = db.findProductById(prodId);
         this.qty = qty;
     }
     
-    private final Product findProduct(String prodId, DataAccessStrategy db){
-        return db.findProduct(prodId, db);
+   // private Product findProductById(String prodId, DataAccessStrategy db){
+     //   return db.findProductById(prodId);
+     //}
+
+
+    @Override
+    public Customer findCustomerById(String custId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Product findProductById(String prodId) {
+        return db.findProductById(prodId);
+    }
+
+    
+
     
 }

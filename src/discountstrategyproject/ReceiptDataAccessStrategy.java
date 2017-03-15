@@ -9,6 +9,10 @@ package discountstrategyproject;
  *
  * @author Leslee
  */
-public interface ReceiptDataAccessStrategy {
+public interface ReceiptDataAccessStrategy extends DataAccessStrategy {
+    
+    public String getReceiptData();
+    
+    //public String findProduct(String custId, DataAccessStrategy db);
     
 }

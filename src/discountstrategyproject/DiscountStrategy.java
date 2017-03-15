@@ -7,14 +7,11 @@ package discountstrategyproject;
 
 /**
  *
- * @author Leslee
+ * @author ltrinastic
  */
-public interface DataAccessStrategy {
-
-    public abstract Product findProductById(String prodId);
-
-    public abstract Customer findCustomerById(String custId);
-
-     
+public interface DiscountStrategy {
+    
+   public abstract double getDiscountAmount(double discountRate);
+    
     
 }

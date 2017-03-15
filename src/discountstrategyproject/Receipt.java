@@ -5,23 +5,21 @@
  */
 package discountstrategyproject;
 
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Leslee
  */
-public class Receipt implements OutputStrategy {
-    DataAccessStrategy db;
-    Customer customer;
+public class Receipt implements DataAccessStrategy{
+    private DataAccessStrategy db;
     private LineItem[] lineItems;
     
     public Receipt(String custId, DataAccessStrategy db) {
         
     }
     
-    private final Customer findCustomer(String custId, DataAccessStrategy db){
-        return db.findCustId(custId,db);
+    private Customer findCustomer(String custId, DataAccessStrategy db){
+        return db.findCustomerById(custId);
     }
 
     public final void addLineItem(String prodId, int qty) {
@@ -30,10 +28,10 @@ public class Receipt implements OutputStrategy {
        
     }
     
-     private void addToArray(final LineItem item) {
-        // needs validation
+    private void addToArray(final LineItem item) {
+       // needs validation
         if(item == null){
-            throw new IllegalArgumentException("Error");
+           throw new IllegalArgumentException("Error");
         }
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
@@ -41,11 +39,21 @@ public class Receipt implements OutputStrategy {
         lineItems = tempItems;
         tempItems = null;
     }
+
+    public final void getReceiptData(){
+        return;
+    }
     
+    
+    @Override
+    public Product findProductById(String prodId) {
+        return db.findProductById(prodId);
+    }
+
+    @Override
+    public Customer findCustomerById(String custId) {
+        return db.findCustomerById(custId);
+    }
      
-     // public void sendMessageOutput(String message){
-       // JOptionPane.showMessageDialog(null,"Thank you for Shopping at Kohl's Department Store"
-         //       + "sold to : " + custId + "/n Address" );//get custID
-    //}
     
 }
