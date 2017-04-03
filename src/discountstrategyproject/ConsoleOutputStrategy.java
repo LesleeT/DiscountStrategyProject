@@ -12,8 +12,16 @@ package discountstrategyproject;
 public class ConsoleOutputStrategy implements OutputStrategy {
 
     @Override
-    public void sendMessageOutput(String message) {
-        System.out.println("Message");
+    public void sendMessageOutput(String message) throws IllegalArgumentException {
+        try{
+            if(message == null || message.isEmpty()){
+                System.out.println("Please enter in a message");
+            }
+            System.out.println("Message");
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        
         }
     
 }
