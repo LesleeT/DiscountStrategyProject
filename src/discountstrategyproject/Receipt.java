@@ -76,4 +76,9 @@ public class Receipt implements DataAccessStrategy{
         }
     }
 
+    @Override
+    public Product findProductById(String prodId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

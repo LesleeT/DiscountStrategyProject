@@ -32,7 +32,7 @@ public class PosTerminal {
     
     //end sale and output receipt
     public final void endSale(){
-       // output.getSaleReceipt(receipt.getReceiptData());
+        //output.getSaleReceipt(receipt.getReceiptData());
         //return 
     }
 

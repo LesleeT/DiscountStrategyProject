@@ -20,14 +20,15 @@ public class QtyDiscount implements DiscountStrategy{
         this.minimumQty = minimumQty;
     }
 
+    public QtyDiscount() {
+    }
+
     @Override
     public double getDiscountAmount(double price, int qty){
-        double discountAmt = 0.00;
-        
+        double discountAmt = 0.00;      
         if(qty >= minimumQty) {
             discountAmt = price * qty * discountRate;
-        }
-        
+        }      
         return discountAmt;
     }
 
@@ -35,15 +36,23 @@ public class QtyDiscount implements DiscountStrategy{
         return discountRate;
     }
 
-    public void setDiscountRate(double discountRate) {
-        this.discountRate = discountRate;
+    public final void setDiscountRate(double discountRate) {
+        if(discountRate < 0.01 || discountRate > 0.99){
+            throw new IllegalArgumentException("The discount rate must have a value");
+        }
+        {   
+            this.discountRate = discountRate;
+        }
     }
-
-    public int getMinimumQty() {
+    
+    public final int getMinimumQty() {
         return minimumQty;
     }
 
-    public void setMinimumQty(int minimumQty) {
+    public final void setMinimumQty(int minimumQty)throws IllegalArgumentException {
+        if(minimumQty == 0){
+            throw new IllegalArgumentException("The minimumQty must be greater than 0.");
+        }
         this.minimumQty = minimumQty;
     }
     
