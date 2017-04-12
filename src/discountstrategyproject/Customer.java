@@ -12,6 +12,11 @@ package discountstrategyproject;
 public class Customer {
     private String custId;
     private String customerName;
+    
+    public Customer(String custId, String customerName) {
+        setCustId(custId);
+        setCustomerName(customerName);
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -21,14 +26,9 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public Customer(String custId, String customerName) {
-        setCustId(custId);
-        setCustomerName(customerName);
-    }
-
     public final String getCustId() {
         //getCustId
-        return getCustId();
+        return custId;
     }
 
     public void setCustId(String custId) {

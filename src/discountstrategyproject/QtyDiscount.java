@@ -50,8 +50,8 @@ public class QtyDiscount implements DiscountStrategy{
     }
 
     public final void setMinimumQty(int minimumQty)throws IllegalArgumentException {
-        if(minimumQty == 0){
-            throw new IllegalArgumentException("The minimumQty must be greater than 0.");
+        if(minimumQty <= 4 || minimumQty >= 6){
+            throw new IllegalArgumentException("The minimumQty must be at 5.");
         }
         this.minimumQty = minimumQty;
     }

@@ -67,4 +67,12 @@ public class QtyDiscountTest {
         instance.setMinimumQty(0);
     }
     
+    @Test
+    public void testSetMinimumQtyShouldBeFive(){
+        int expected = 5;
+        double actual = instance.getMinimumQty();
+        assertEquals(expected, actual, 0.0001);
+        
+}
+    
 }
